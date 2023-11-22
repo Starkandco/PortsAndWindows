@@ -22,9 +22,6 @@ shape = SubResource("RectangleShape2D_l3ymn")
 [node name="MainVPCam" type="Camera2D" parent="."]
 position = Vector2(364, 250)
 
-[node name="SVPCam" type="Camera2D" parent="."]
-position = Vector2(964, 249)
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(159, 310)
 script = ExtResource("1_p5o7r")
@@ -37,7 +34,7 @@ shape = SubResource("RectangleShape2D_y1eeo")
 texture = ExtResource("2_qcaoc")
 
 [node name="Window" type="Window" parent="."]
-position = Vector2i(650, 0)
+position = Vector2i(0, 36)
 size = Vector2i(400, 400)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Window"]
@@ -45,3 +42,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="Window/SubViewportContainer"]
+
+[node name="SVPCam" type="Camera2D" parent="Window/SubViewportContainer/SubViewport"]
+position = Vector2(966, 249)
