@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7nm2ke3tcuvv"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_p5o7r"]
+[ext_resource type="Script" path="res://main.gd" id="1_wha2k"]
+[ext_resource type="Texture2D" uid="uid://bus8wr17wecuu" path="res://icon.svg" id="2_qcaoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ymn"]
+size = Vector2(1009.5, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1eeo"]
+size = Vector2(50, 68)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_wha2k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(599.25, 410)
+shape = SubResource("RectangleShape2D_l3ymn")
+
+[node name="MainVPCam" type="Camera2D" parent="."]
+position = Vector2(364, 250)
+
+[node name="SVPCam" type="Camera2D" parent="."]
+position = Vector2(964, 249)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(159, 310)
+script = ExtResource("1_p5o7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(15, 24)
+shape = SubResource("RectangleShape2D_y1eeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_qcaoc")
+
+[node name="Window" type="Window" parent="."]
+position = Vector2i(650, 0)
+size = Vector2i(400, 400)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Window"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="Window/SubViewportContainer"]
